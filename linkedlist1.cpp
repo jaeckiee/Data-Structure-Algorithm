@@ -49,9 +49,18 @@ void sll_appendnode(Node** head, Node* newnode) {
 	}
 }
 
+Node* sll_getnodeat(Node* head, int location) {
+	Node* current = head;
+	while (current != nullptr && (--location) > 0) {
+		current = current->nextnode;
+	}
+	return current;
+}
+
 int main(){
 	Node* List = nullptr;
 	Node* newnode = nullptr;
+	Node* getnode = nullptr;
 	newnode = sll_createnode(10);
 	//(1)sll_appendnode(List, newnode);
 	sll_appendnode(&List, newnode);
@@ -61,5 +70,7 @@ int main(){
 	else {
 		cout << "correct" << endl;
 	}
+	getnode = sll_getnodeat(List, 1);
+	cout << getnode->data << endl;
 	return 0;
 }
