@@ -69,12 +69,20 @@ void sll_removenode(Node** head, Node* remove) {
 		current->nextnode = remove->nextnode;
 	}
 }
+
+void sll_insertnode(Node* current, Node* newnode) {
+	newnode->nextnode = current->nextnode;
+	current->nextnode = newnode;
+}
+
 int main(){
 	Node* List = nullptr;
 	Node* newnode = nullptr;
 	Node* getnode = nullptr;
 	newnode = sll_createnode(10);
 	//(1)sll_appendnode(List, newnode);
+	sll_appendnode(&List, newnode);
+	newnode = sll_createnode(20);
 	sll_appendnode(&List, newnode);
 	if (List == nullptr) {
 		cout << "fail" << endl;
@@ -83,6 +91,8 @@ int main(){
 		cout << "correct" << endl;
 	}
 	getnode = sll_getnodeat(List, 1);
+	sll_removenode(&List, List);
 	cout << getnode->data << endl;
+	cout << List->data << endl;
 	return 0;
 }
