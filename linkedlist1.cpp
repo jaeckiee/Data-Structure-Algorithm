@@ -57,6 +57,18 @@ Node* sll_getnodeat(Node* head, int location) {
 	return current;
 }
 
+void sll_removenode(Node** head, Node* remove) {
+	if (*head == remove) {
+		*head = remove->nextnode;
+	}
+	else {
+		Node* current = *head;
+		while (current != nullptr && current->nextnode != remove) {
+			current = current->nextnode;
+		}
+		current->nextnode = remove->nextnode;
+	}
+}
 int main(){
 	Node* List = nullptr;
 	Node* newnode = nullptr;
