@@ -4,14 +4,19 @@ using namespace std;
 
 class Node {
 public:
-	Node(){
+	Node() {
 		data = 0;
 	}
 	Node(int num) {
 		data = num;
 	}
+	~Node() {
+	}
 	int returndata() {
 		return data;
+	}
+	void pushnum(int num) {
+		data = num;
 	}
 private:
 	int data;
@@ -30,11 +35,11 @@ public:
 		top = 0;
 	}
 	~Stack() {
-		delete nodes;
+		delete[] nodes;
 		nodes = nullptr;
 	}
 	void push(int num) {
-		nodes[top++] = Node(num);
+		nodes[top++].pushnum(num);
 	}
 	int pop() {
 		int result = nodes[--top].returndata();
