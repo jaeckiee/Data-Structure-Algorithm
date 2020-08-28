@@ -80,7 +80,7 @@ public:
 		}
 	}
 	BSTNode* deleteNode(BSTNode** node, BSTNode* parent, int target) {
-		if (node == nullptr) {
+		if (*node == nullptr) {
 			return nullptr;
 		}
 		else {
